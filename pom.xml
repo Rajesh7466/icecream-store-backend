@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.example</groupId>
-	<artifactId>SPRING-SECURITY</artifactId>
+	<artifactId>icecream-store-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SPRING-SECURITY</name>
+	<name>icecream-store-backend</name>
 	<description>WORKING WITH SPRING SECURITY</description>
 	<url/>
 	<licenses>
