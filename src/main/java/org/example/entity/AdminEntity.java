@@ -14,6 +14,7 @@ import lombok.Setter;
 public class AdminEntity {
 	@Id
 	private String  emailId;
+	private String fullname;
 	private String password;
 	
 }

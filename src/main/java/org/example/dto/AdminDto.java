@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AdminDto {
-	
+	private String fullname;
 	private String emailId;
 	private String password;
 }

@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.example.dto.AdminDto;
 import org.example.dto.AdminOrderDto;
 import org.example.dto.StatusUpdateDto;
+import org.example.dto.UserLogin_Response;
+import org.example.dto.User_Login_Info;
 import org.example.entity.OrderEntity;
 import org.example.entity.UserInformation;
 import org.example.repository.OrderRepository;
@@ -17,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +47,40 @@ OrderRepository orderRepository;
 private UserRepository userRepository;
 
 private static final Logger logger=LoggerFactory.getLogger(AdminController.class);
+
+
+/*for admin register 
+ * url: public/admin/register
+ * */
+    
+	@PostMapping("/public/admin/register")
+	public ResponseEntity<AdminDto> registerAdmin(@RequestBody AdminDto dto){
+		logger.info("admin data recived :"+dto.getEmailId());
+		AdminDto responseAdminDto=adminService.createUserAdmin(dto);
+		if (responseAdminDto!=null) {
+			return new ResponseEntity<AdminDto>(responseAdminDto,HttpStatus.CREATED);
+		}
+		return  ResponseEntity.status(HttpStatus.CONFLICT).build();
+	}
+
+	
+	/**
+     *  login  for admin users
+     * Endpoint: GET /public/admin/login
+     * Returns: Login for admin 
+     */
+	@PostMapping("/public/admin/login")
+	public ResponseEntity<UserLogin_Response> adminUserLogin(@RequestBody User_Login_Info dto){
+		UserLogin_Response userLogin_Response=adminService.adminLogin(dto);
+		if (userLogin_Response!=null) {
+			return new ResponseEntity<>(userLogin_Response,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
+	}
+	
+
+
+
 
 	@PostMapping("/public/find/")
 	public List<UserInformation>  findAlluser(){
