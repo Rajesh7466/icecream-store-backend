@@ -16,5 +16,13 @@ public class AdminEntity {
 	private String  emailId;
 	private String fullname;
 	private String password;
+	public AdminEntity(String emailId, String fullname, String password) {
+		super();
+		this.emailId = emailId;
+		this.fullname = fullname;
+		this.password = password;
+	}
+	
+	
 	
 }

@@ -3,6 +3,8 @@ package org.example.service;
 import java.util.List;
 
 import org.example.dto.AdminDto;
+import org.example.dto.UserLogin_Response;
+import org.example.dto.User_Login_Info;
 import org.example.entity.AdminEntity;
 import org.example.entity.UserInformation;
 import org.example.repository.UserAdminRepository;
@@ -27,10 +29,12 @@ public class AdminService {
 	
 	public AdminDto createUserAdmin(AdminDto dto) {
 		 AdminEntity adminEntity=userAdminRepository.findById(dto.getEmailId())
-				 .orElseThrow(()->  new UsernameNotFoundException("Admin  is not found"));
+				 .orElseThrow(null);
 		 if (adminEntity!=null) {
+			 
 			return null;
 		}
+	
 		  adminEntity.setEmailId(dto.getEmailId());
 		  adminEntity.setFullname(dto.getFullname());
 		  adminEntity.setPassword(dto.getPassword());
@@ -42,6 +46,17 @@ public class AdminService {
 		  adminDto.setFullname(adminEntity.getFullname());
 		  adminDto.setPassword(adminEntity.getPassword());
 		return adminDto;
+	}
+
+	public UserLogin_Response adminLogin(User_Login_Info dto) {
+		 AdminEntity adminEntity=userAdminRepository.findById(dto.getEmailId())
+				 .orElseThrow(null);
+		 if (adminEntity!=null) {
+			UserLogin_Response userLogin_Response=new UserLogin_Response();
+			userLogin_Response.setEmailId(adminEntity.getEmailId());
+			
+		}
+		return null;
 	}
 	
 	
