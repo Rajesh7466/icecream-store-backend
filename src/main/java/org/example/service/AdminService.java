@@ -1,6 +1,7 @@
 package org.example.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.example.dto.AdminDto;
 import org.example.dto.UserLogin_Response;
@@ -28,16 +29,16 @@ public class AdminService {
 	}
 	
 	public AdminDto createUserAdmin(AdminDto dto) {
-		 AdminEntity adminEntity=userAdminRepository.findById(dto.getEmailId())
-				 .orElseThrow(null);
-		 if (adminEntity!=null) {
+		 Optional<AdminEntity> optional=userAdminRepository.findById(dto.getEmailId());
+		 if (optional.isPresent()) {
 			 
 			return null;
 		}
-	
-		  adminEntity.setEmailId(dto.getEmailId());
-		  adminEntity.setFullname(dto.getFullname());
-		  adminEntity.setPassword(dto.getPassword());
+		 AdminEntity adminEntity=
+				 new AdminEntity(dto.getEmailId(),dto.getFullname(),dto.getPassword());
+//		  adminEntity.setEmailId(dto.getEmailId());
+//		  adminEntity.setFullname(dto.getFullname());
+//		  adminEntity.setPassword(dto.getPassword());
 		  userAdminRepository.save(adminEntity);
 		  
 //		  for admin user response 
