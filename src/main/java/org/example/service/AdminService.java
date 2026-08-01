@@ -35,10 +35,10 @@ public class AdminService {
 			return null;
 		}
 		 AdminEntity adminEntity=
-				 new AdminEntity(dto.getEmailId(),dto.getFullname(),dto.getPassword());
-//		  adminEntity.setEmailId(dto.getEmailId());
-//		  adminEntity.setFullname(dto.getFullname());
-//		  adminEntity.setPassword(dto.getPassword());
+				 new AdminEntity();
+		  adminEntity.setEmailId(dto.getEmailId());
+		  adminEntity.setFullname(dto.getFullname());
+		  adminEntity.setPassword(dto.getPassword());
 		  userAdminRepository.save(adminEntity);
 		  
 //		  for admin user response 
