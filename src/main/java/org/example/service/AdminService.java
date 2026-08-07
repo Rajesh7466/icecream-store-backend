@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.example.dto.AdminDto;
+import org.example.dto.AdminLoginResponse;
 import org.example.dto.UserLogin_Response;
 import org.example.dto.User_Login_Info;
 import org.example.entity.AdminEntity;
@@ -49,12 +50,15 @@ public class AdminService {
 		return adminDto;
 	}
 
-	public UserLogin_Response adminLogin(User_Login_Info dto) {
+	public AdminLoginResponse adminLogin(User_Login_Info dto) {
 		 AdminEntity adminEntity=userAdminRepository.findById(dto.getEmailId())
 				 .orElseThrow(null);
 		 if (adminEntity!=null) {
-			UserLogin_Response userLogin_Response=new UserLogin_Response();
-			userLogin_Response.setEmailId(adminEntity.getEmailId());
+//			 
+			 AdminLoginResponse adminLoginResponse=new AdminLoginResponse();
+			 
+			 adminLoginResponse.setEmailId(adminEntity.getEmailId());
+			return adminLoginResponse;
 			
 		}
 		return null;

@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.example.dto.AdminDto;
+import org.example.dto.AdminLoginResponse;
 import org.example.dto.AdminOrderDto;
 import org.example.dto.StatusUpdateDto;
-import org.example.dto.UserLogin_Response;
 import org.example.dto.User_Login_Info;
 import org.example.entity.OrderEntity;
 import org.example.entity.UserInformation;
@@ -70,10 +70,11 @@ private static final Logger logger=LoggerFactory.getLogger(AdminController.class
      * Returns: Login for admin 
      */
 	@PostMapping("/public/admin/login")
-	public ResponseEntity<UserLogin_Response> adminUserLogin(@RequestBody User_Login_Info dto){
-		UserLogin_Response userLogin_Response=adminService.adminLogin(dto);
-		if (userLogin_Response!=null) {
-			return new ResponseEntity<>(userLogin_Response,HttpStatus.OK);
+	public ResponseEntity<AdminLoginResponse> adminUserLogin(@RequestBody User_Login_Info dto){
+		logger.info("email id is recived for admin login"+dto.getEmailId());
+		 AdminLoginResponse adminLoginResponse=adminService.adminLogin(dto);
+		if (adminLoginResponse!=null) {
+			return new ResponseEntity<>(adminLoginResponse,HttpStatus.OK);
 		}
 		return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
 	}
