@@ -15,15 +15,14 @@ A REST API backend for an e-commerce application, built with **Spring Boot**, **
 
 | Home Page | Login Prompt |
 |---|---|
-| ![Home page](./screenshots/home.png) | ![Login required prompt](./screenshots/login.png) |
+| ![Home page](./screenshots/index.png) | ![Login required prompt](./screenshots/profile.png) |
 
 | Add to Cart / Checkout | User Profile |
 |---|---|
-| ![Add to cart and checkout](./screenshots/add-to-cart.png) | ![User profile page](./screenshots/profile.png) |
-
+| ![Add to cart and checkout](./screenshots/addcart.png)  
 | Order Success | Order History |
 |---|---|
-| ![Order placed successfully](./screenshots/order-success.png) | ![Order history detail](./screenshots/order-history.png) |
+| ![Order placed successfully](./screenshots/order-sucess.png) | ![Order history detail](./screenshots/order-history.png) |
 
 **Swagger API Docs**
 
