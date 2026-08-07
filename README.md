@@ -11,6 +11,24 @@ A REST API backend for an e-commerce application, built with **Spring Boot**, **
 - **Order History & Cancellation** — View past orders, cancel pending orders with stock restoration
 - **Address Management** — Save delivery addresses per user
 
+## Screenshots
+
+| Home Page | Login Prompt |
+|---|---|
+| ![Home page](./screenshots/home.png) | ![Login required prompt](./screenshots/login.png) |
+
+| Add to Cart / Checkout | User Profile |
+|---|---|
+| ![Add to cart and checkout](./screenshots/add-to-cart.png) | ![User profile page](./screenshots/profile.png) |
+
+| Order Success | Order History |
+|---|---|
+| ![Order placed successfully](./screenshots/order-success.png) | ![Order history detail](./screenshots/order-history.png) |
+
+**Swagger API Docs**
+
+![Swagger UI](./screenshots/swagger-ui.png)
+
 ## Tech Stack
 
 | Layer          | Technology              |
@@ -92,6 +110,10 @@ All of this runs inside a single `@Transactional` block — if any step fails, e
 1. User logs in → server validates credentials → JWT is generated and returned
 2. Frontend stores the JWT (localStorage) and sends it as `Authorization: Bearer <token>` on every secured request
 3. A security filter validates the token on each request before allowing access to the controller
+
+## API Documentation
+
+Interactive Swagger UI is available at `/v3/api-docs` (OpenAPI 3.0), listing all controllers (order, cart, product, user) with request/response schemas.
 
 ## Getting Started
 
